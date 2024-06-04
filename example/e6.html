@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+
+<style>
+img{
+    width: 200px;
+    height: 150px;
+}      
+img[id^='ph']{
+    border: 2px solid red;
+}
+
+
+p::after{
+    content: '蘋果新聞';
+    color: lightcoral;
+}
+input{accent-color: brown;}
+input:enabled+label{
+    background-color: yellow;
+}
+</style>
+
+
+ 
+</head>
+<body>
+    
+  <img src="../30_box_model/img/sunny.jpg" id="ph" alt="sunny">
+  <br><img src="../30_box_model/img/sunny.jpg" id="photo1 go" alt="sunny">
+  <br><img src="../30_box_model/img/sunny.jpg" id="photo1-1" alt="sunny">
+  <br><img src="../30_box_model/img/sunny.jpg" id="oto2ph" alt="sunny">
+   
+<br>
+
+  <input type="checkbox" id="o1">
+  <label for="o1">option 1</label>
+  <input type="checkbox" id="o2">
+  <label for="o2">option 1</label>
+  
+
+</body>
+
+</html>
+    

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outbox{
+           position: absolute;
+            width: 1200px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            border-right: 2.2px solid black;
+            border-bottom: 2.2px solid black;
+        }
+        .leftbox{
+            float: left;
+            width: 900px;
+            /* height: 600px; */
+            box-sizing: border-box;
+            border-top: 1.4px solid black;
+            border-left: 1.4px solid black;
+            border-right: 5px solid black;
+        }
+        .rightbox{
+            float: left;
+            width: 298px;
+            border-top: 1.5px solid black;
+        }
+        .top{
+            position: relative;
+            width: 898px;
+            height: 120px;
+            border-bottom: 1.4px solid black;
+            background-color: rgb(219, 219, 219);
+            box-sizing: border-box;
+        }
+        .bottom{
+            padding-top: 28px;
+            width: 898px;
+            padding-bottom: 28px;
+            background-color: rgb(244, 244, 244);
+        }
+        table{
+            margin: 0 auto;
+            width: 835px; 
+            border: 1.4px solid black;
+        }
+        thead tr{
+            width: 835px;
+            height: 40px;
+            border: 1.4px solid black;
+            background-color: rgb(208, 241, 255);
+        }
+        tbody tr{
+            width: 835px;
+            height: 50px;
+            border: 1.4px solid black;
+            background-color: rgb(255, 239, 239);
+        }
+        td{
+            width: 278px;
+            border: 1.4px solid black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            letter-spacing: 3px;
+        }
+        .price{
+            position: absolute;
+            top: 22px;
+            left: 37px;
+            letter-spacing: 2px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .start,.end{
+            padding-left: 6px;
+            width: 100px;
+            height: 30px;
+            outline: none;
+            font-size: 20px;
+        }
+        .pricebox{
+            position: absolute;
+            top: 19px;
+            left: 325px;
+            letter-spacing: 2px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .select1{
+            position: absolute;
+            width: 170px;
+            height: 37px;
+            top: 17px;
+            right: 115px;
+            font-size: 14.5px;
+            letter-spacing: 2px;
+            background-color: rgb(255, 226, 154);
+ 
+            border: 1px solid black;
+        }
+ 
+        .name-p{
+            position: absolute;
+            bottom: 22px;
+            left: 94px;
+            letter-spacing: 2px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .name{
+            position: absolute;
+            bottom: 16px;
+            left: 325px;
+            letter-spacing: 2px;
+            font-size: 18px;
+            width: 235px;
+            height: 30px;
+            outline: none;
+            padding-left: 6px;
+        }
+        .select2{
+            position: absolute;
+            width: 170px;
+            height: 37px;
+            bottom: 15px;
+            right: 115px;
+            font-size: 14.5px;
+            letter-spacing: 2px;
+            background-color: rgb(255, 226, 154);
+ 
+            border: 1px solid black;
+        }
+        .select1:hover{
+            background-color: rgb(255, 210, 95);
+        }
+        .select2:hover{
+            background-color: rgb(255, 214, 110);
+        }
+        .rtable{
+            margin: 0 auto;
+            width: 240px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+        .rthead .rtr{
+            width: 240px;
+            height: 40px;
+            border: 1.4px solid black;
+            background-color: rgb(208, 241, 255);
+        }
+        .rtbody .rtr{
+            width: 240px;
+            height: 40px;
+            border: 1.4px solid black;
+            background-color: rgb(255, 201, 114);
+        }
+        .rtd{
+            width: 240px;
+            border: 1.4px solid black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            letter-spacing: 3px;
+        }
+        .righttd{
+            width: 240px;
+            border: 1.4px solid black;
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            letter-spacing: 3px;
+            background-color: rgb(255, 234, 206);
+        }
+        .clear{
+            width: 85px;
+            height: 85px;
+            position: absolute;
+            top: 16px;
+            right: 13px;
+            border: 1px solid black;
+            font-weight: 400;
+            font-size: 15px;
+            background-color: #fff;
+        }
+        .clear:hover{
+            background-color: rgb(247, 247, 247);
+        }
+    </style>
+</head>
+<body>
+    <div class="outbox">
+        <div class="leftbox">
+            <div class="top">
+                <button class="clear">清空查询</button>
+               <p class="price">您要查询的价格区间为(万元):</p>
+               <div class="pricebox">
+                   <input type="text" class="start"> ~ <input type="text" class="end">
+               </div>
+               <input type="button" class="select1" value="从价格区间查询">
+               <p class="name-p">您要查询的车辆名称为:</p>
+                   <input type="text" class="name">
+               <input type="button" class="select2" value="从车辆名称查询">
+            </div>
+            <div class="bottom">
+               <table cellspacing="0" style="border-collapse: collapse;">
+                   <thead>
+                       <tr>
+                           <td>汽车编号</td>
+                           <td>汽车名称</td>
+                           <td>汽车售价(万元)</td>
+                       </tr>
+                   </thead>
+                   <tbody>
+                   </tbody>
+               </table>
+            </div>
+       </div>
+       <div class="rightbox">
+        <table cellspacing="0" style="border-collapse: collapse;" class="rtable">
+            <thead class="rthead">
+                <tr class="rtr">
+                    <td class="rtd">查询结果</td>
+                </tr>
+            </thead>
+            <tbody class="rtbody">
+            </tbody>
+        </table>
+       </div>
+    </div>
+    
+     <script>
+        var car=[
+            {
+                'id':1000001,
+                'name':'奥迪A6 Avent',
+                'price':46
+            },
+            {
+                'id':1000002,
+                'name':'奥迪A6 allroad',
+                'price':52
+            },
+            {
+                'id':1000003,
+                'name':'奥迪RS6',
+                'price':145
+            },{
+                'id':1000004,
+                'name':'奥迪RS7',
+                'price':154
+            },
+            {
+                'id':1000005,
+                'name':'奥迪A7L',
+                'price':82
+            },
+            {
+                'id':1000006,
+                'name':'GTR R32',
+                'price':140
+            },
+            {
+                'id':1000007,
+                'name':'GTR R33',
+                'price':101
+            },
+            {
+                'id':1000008,
+                'name':'GTR R34',
+                'price':180
+            },
+            {
+                'id':1000009,
+                'name':'GTR R35',
+                'price':160
+            }
+        ]
+        var tbody=document.querySelector('tbody');
+        var rtbody=document.querySelector('.rtbody');
+        var start=document.querySelector('.start');
+        var end=document.querySelector('.end');
+        var select1=document.querySelector('.select1');
+        var clear=document.querySelector('.clear');
+        var select2=document.querySelector('.select2');
+        var name1=document.querySelector('.name');
+        clear.addEventListener('click',function(){
+            window.location.reload()
+        })
+        car.forEach(function(value,index,arr){
+            var tr=document.createElement('tr');
+            tr.innerHTML='<td>'+value.id+'</td><td>'+value.name+'</td><td>'+value.price+'</td>'
+            tbody.appendChild(tr)
+        })
+        select1.addEventListener('click',function(){
+            rtbody.innerHTML=''
+            var newcar=car.filter(function(value,index,arr){
+                return value.price>=start.value&&value.price<=end.value;
+            })
+            // console.log(newcar);
+            newcar.forEach(function(value,index,arr){
+                var tr=document.createElement('tr');
+                tr.innerHTML='<td class="righttd">'+value.name+'  :'+value.price+'万'+'</rd>'
+                rtbody.appendChild(tr)
+            })
+        })
+    select2.addEventListener('click',function(){
+        rtbody.innerHTML=''
+        newarr=[]
+        car.some(function(value,index,arr){
+            if(value.name==name1.value){
+                newarr.push(value)
+                return true;
+            }
+        })
+            newarr.forEach(function(value,index,arr){
+                var tr=document.createElement('tr');
+                tr.innerHTML='<td class="righttd">'+value.name+'  :'+value.price+'万'+'</rd>'
+                rtbody.appendChild(tr)
+            })
+    })
+     </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+@font-face {
+    font-family:'Quicksand' ;
+    src: url(../font/quicksand/Quicksand-Regular.otf);}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200&display=swap');
+@font-face {
+        font-family:'Taipei Sans' ;
+        src: url(../font/TaipeiSansTCBeta-Light.ttf);}
+@font-face {
+font-family:'hyl' ;
+src: url(../font/ChenYuluoyan-Thin.ttf);
+}
+
+body {
+margin: 0;
+font-family: 'Taipei Sans';
+background-color: #f1f1f1;}
+
+.topnav {
+overflow: hidden;
+background-color: 	#3C3C3C;
+}
+
+.topnav a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 7px 7px;
+text-decoration: none;
+font-size:15px;
+}
+
+.topnav a:hover {
+background-color:#DBD4C6;
+color: black;
+}
+
+
+.topnav .icon {
+display: none;
+}
+
+@media screen and (max-width: 600px) {
+.topnav a:not(:first-child) {display: none;}
+.topnav a.icon {
+float: right;
+display: block;
+}}
+
+@media screen and (max-width: 600px) {
+.topnav.responsive {position: relative;}
+.topnav.responsive .icon {
+position: absolute;
+right: 0;
+top: 0;}
+.topnav.responsive a {
+float: none;
+display: block;
+text-align: left;}
+}
+.content{
+    position: absolute;
+    top: 90px;
+    left: 20px;
+    font-size: 14px;
+    font-family: 'hyl';
+    color: rgb(0,0, 0,0.5);
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+
+/* footer */
+  .b-example-divider {
+    height: 1rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  
+
+
+
